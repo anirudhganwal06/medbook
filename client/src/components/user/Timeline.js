@@ -1,171 +1,70 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Timeline extends Component {
   render() {
+    let records = [];
+    const fetchedRecs = this.props.auth.user.records;
+    fetchedRecs.reverse();
+    const monthMap = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
+    const weekMap = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturaday"];
+    for (let i in fetchedRecs) {
+      let date = new Date(1970, 0, 1);
+      date.setSeconds(fetchedRecs[i].date._seconds);
+      // let date = fetchedRecs[i].date.toDate();
+      records.push(
+        <article className="timeline-entry ">
+          <div className="timeline-entry-inner">
+            <time className="timeline-time" dateTime="2014-01-10T03:45">
+              <span>
+                {date.getDate() +
+                  " " +
+                  monthMap[date.getMonth()] +
+                  ", " +
+                  date.getFullYear()}
+              </span>
+              <span>{weekMap[date.getDay()]}</span>
+            </time>
+
+            <div className="timeline-icon bg-danger">
+              <i className="fas fa-medal"></i>
+            </div>
+            <div className="timeline-label">
+              <h2 className="font-weight-bold"><span className="text-muted">Hospital: </span>{fetchedRecs[i].hostipalId}</h2>
+              <h2><span className="text-muted">Files: </span>{fetchedRecs[i].image}</h2>
+              <h5><span className="text-muted">Description: </span>{fetchedRecs[i].desc}</h5>
+              <h4 className="text-right">
+                <a href="#">View Documents</a>
+              </h4>
+            </div>
+          </div>
+        </article>
+      );
+
+      records.push(
+        <article className="timeline-entry begin">
+          <div className="timeline-entry-inner">
+            <div
+              className="timeline-icon"
+              // style="-webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg);"
+            >
+              <i className="fas fa-rocket"></i>
+            </div>
+          </div>
+        </article>
+      );
+    }
+    console.log("records");
+    console.log(fetchedRecs);
     return (
       <div>
         <div className="container-fluid mt-4">
-          <h1
-            className="text-dark text-center font-weight-light my-3"
-          >
+          <h1 className="text-dark text-center font-weight-light my-3">
             TIMELINE
           </h1>
           <div className="row p-r-l-15">
-            <div className="timeline-centered">
-              <article className="timeline-entry">
-                <div className="timeline-entry-inner">
-                  <time className="timeline-time" dateTime="2014-01-10T03:45">
-                    <span>Styczeń</span>
-                    <span>2019</span>
-                  </time>
-
-                  <div className="timeline-icon bg-primary">
-                    <i className="fas fa-suitcase"></i>
-                  </div>
-
-                  <div className="timeline-label">
-                    <h2>Lorem ipsum dolor sit amet</h2>
-                    <p>
-                      We have had a meeting at <strong>Office</strong>.
-                    </p>
-                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
-                  </div>
-                </div>
-              </article>
-
-              <article className="timeline-entry ">
-                <div className="timeline-entry-inner">
-                  <time className="timeline-time" dateTime="2014-01-10T03:45">
-                    <span>Grudzień</span>
-                    <span>2018</span>
-                  </time>
-
-                  <div className="timeline-icon bg-danger">
-                    <i className="fas fa-medal"></i>
-                  </div>
-                  <div className="timeline-label">
-                    <h2>
-                      Oddanie wersji produkcyjnej <strong>xxx</strong>.
-                      Kontynuacja rozwoju.{" "}
-                    </h2>
-                    <p>
-                      Tolerably earnestly middleton extremely distrusts she boy
-                      now not. Add and offered prepare how cordial two promise.
-                      Greatly who affixed suppose but enquire compact prepare
-                      all put. Added forth chief trees but rooms think may.
-                    </p>
-                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
-
-                  </div>
-                </div>
-              </article>
-              <article className="timeline-entry">
-                <div className="timeline-entry-inner">
-                  <time className="timeline-time" dateTime="2014-01-10T03:45">
-                    <span>Styczeń</span>
-                    <span>2019</span>
-                  </time>
-
-                  <div className="timeline-icon bg-primary">
-                    <i className="fas fa-suitcase"></i>
-                  </div>
-
-                  <div className="timeline-label">
-                    <h2>Lorem ipsum dolor sit amet</h2>
-                    <p>
-                      We have had a meeting at <strong>Office</strong>.
-                    </p>
-                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
-
-                  </div>
-                </div>
-              </article>
-
-              <article className="timeline-entry ">
-                <div className="timeline-entry-inner">
-                  <time className="timeline-time" dateTime="2014-01-10T03:45">
-                    <span>Grudzień</span>
-                    <span>2018</span>
-                  </time>
-
-                  <div className="timeline-icon bg-danger">
-                    <i className="fas fa-medal"></i>
-                  </div>
-                  <div className="timeline-label">
-                    <h2>
-                      Oddanie wersji produkcyjnej <strong>xxx</strong>.
-                      Kontynuacja rozwoju.{" "}
-                    </h2>
-                    <p>
-                      Tolerably earnestly middleton extremely distrusts she boy
-                      now not. Add and offered prepare how cordial two promise.
-                      Greatly who affixed suppose but enquire compact prepare
-                      all put. Added forth chief trees but rooms think may.
-                    </p>
-                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
-
-                  </div>
-                </div>
-              </article>
-              <article className="timeline-entry">
-                <div className="timeline-entry-inner">
-                  <time className="timeline-time" dateTime="2014-01-10T03:45">
-                    <span>Styczeń</span>
-                    <span>2019</span>
-                  </time>
-
-                  <div className="timeline-icon bg-primary">
-                    <i className="fas fa-suitcase"></i>
-                  </div>
-
-                  <div className="timeline-label">
-                    <h2>Lorem ipsum dolor sit amet</h2>
-                    <p>
-                      We have had a meeting at <strong>Office</strong>.
-                    </p>
-                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
-
-                  </div>
-                </div>
-              </article>
-
-              <article className="timeline-entry ">
-                <div className="timeline-entry-inner">
-                  <time className="timeline-time" dateTime="2014-01-10T03:45">
-                    <span>Grudzień</span>
-                    <span>2018</span>
-                  </time>
-
-                  <div className="timeline-icon bg-danger">
-                    <i className="fas fa-medal"></i>
-                  </div>
-                  <div className="timeline-label">
-                    <h2>
-                      Oddanie wersji produkcyjnej <strong>xxx</strong>.
-                      Kontynuacja rozwoju.{" "}
-                    </h2>
-                    <p>
-                      Tolerably earnestly middleton extremely distrusts she boy
-                      now not. Add and offered prepare how cordial two promise.
-                      Greatly who affixed suppose but enquire compact prepare
-                      all put. Added forth chief trees but rooms think may.
-                    </p>
-                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
-
-                  </div>
-                </div>
-              </article>
-
-              <article className="timeline-entry begin">
-                <div className="timeline-entry-inner">
-                  <div
-                    className="timeline-icon"
-                    // style="-webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg);"
-                  >
-                    <i className="fas fa-rocket"></i>
-                  </div>
-                </div>
-              </article>
+            <div className="timeline-centered col-12">
+              {records}
             </div>
           </div>
         </div>
@@ -274,4 +173,8 @@ class Timeline extends Component {
   }
 }
 
-export default Timeline;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Timeline);
