@@ -21,11 +21,11 @@ class MyProfile extends Component {
 
   render() {
     return (
-      <section class="mt-5 pt-5">
+      <section class="mt-5 pt-5  profile--bck">
         <div class="container-fluid">
           <div class="row my-4 align-items-center justify-content-center">
             <div class="col-md-4" className="editProfileImgContainer">
-              <img src="img/profileTemp.jpg" class="card-img m-2" />
+              <img src="assets/img/profilefront.jpg" class="card-img m-2" />
             </div>
             <div class="col-md-4">
               <form action="#" class="p-md-4 mx-3">
