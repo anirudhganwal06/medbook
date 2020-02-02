@@ -53,17 +53,18 @@ router.post("/login", async (req, res) => {
     const errors = {};
     const isValid = true;
     // const { errors, isValid } = validateLoginInput(req.body);
-
+    
     // Check Validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
     const { aadhar, password } = req.body;
-
+    
     let userRef = db.collection("users").doc(aadhar);
     let user = await userRef.get();
     if (!user.exists) {
       errors.aadhar = "User not found";
+      console.log("backend login")
       return res.status(404).json(errors);
     }
 
@@ -76,13 +77,14 @@ router.post("/login", async (req, res) => {
           name: user.data().name,
           mobile: user.data().mobile
         }; // Create JWT Payload
-
+        
         // Sign Token
         jwt.sign(
           payload,
           config.jwt.secret,
           { expiresIn: 360000 },
           (err, token) => {
+            console.log("sending res");
             res.json({
               message: "User signed in successfully!",
               token: "Bearer " + token

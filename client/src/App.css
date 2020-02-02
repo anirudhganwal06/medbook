@@ -1,0 +1,11 @@
+main {
+  padding-top: 92px;
+}
+
+.pointerCursor {
+  cursor: pointer;
+}
+
+.editProfileImgContainer img {
+  max-width: 280px;
+}

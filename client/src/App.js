@@ -5,8 +5,18 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/profileActions";
 
+import "./App.css";
+
 import { Provider } from "react-redux";
 import store from "./store";
+import Login from "./components/auth/Login";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./components/common/PrivateRoute";
+import Timeline from "./components/user/Timeline";
+import Landing from "./components/layout/Landing";
+import MyProfile from "./components/user/MyProfile";
 
 // import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -34,9 +44,18 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="App">
-          <h1>Hello</h1>
-        </div>
+        <Router>
+          <div className="App">
+            <Header />
+            <main>
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/login" component={Login} />
+              <PrivateRoute exact path="/timeline" component={Timeline} />
+              <PrivateRoute exact path="/my-profile" component={MyProfile} />
+            </main>
+            <Footer />
+          </div>
+        </Router>
       </Provider>
     );
   }
