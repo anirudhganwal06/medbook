@@ -16,8 +16,10 @@ app.use(passport.initialize());
 require("./passport")(passport);
 
 const authRoutes = require("./routes/auth");
+const hospitalRoutes = require("./routes/hospital");
 
 app.use("/api", authRoutes);
+app.use("/api/hospital", hospitalRoutes);
 
 const port = config.PORT || process.env.PORT;
 app.listen(port, () => {
