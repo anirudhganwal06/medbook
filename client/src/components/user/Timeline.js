@@ -7,7 +7,6 @@ class Timeline extends Component {
         <div className="container-fluid mt-4">
           <h1
             className="text-dark text-center font-weight-light my-3"
-            // style="letter-spacing: 2px;"
           >
             TIMELINE
           </h1>
@@ -29,6 +28,7 @@ class Timeline extends Component {
                     <p>
                       We have had a meeting at <strong>Office</strong>.
                     </p>
+                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
                   </div>
                 </div>
               </article>
@@ -54,6 +54,8 @@ class Timeline extends Component {
                       Greatly who affixed suppose but enquire compact prepare
                       all put. Added forth chief trees but rooms think may.
                     </p>
+                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
+
                   </div>
                 </div>
               </article>
@@ -73,6 +75,8 @@ class Timeline extends Component {
                     <p>
                       We have had a meeting at <strong>Office</strong>.
                     </p>
+                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
+
                   </div>
                 </div>
               </article>
@@ -98,6 +102,8 @@ class Timeline extends Component {
                       Greatly who affixed suppose but enquire compact prepare
                       all put. Added forth chief trees but rooms think may.
                     </p>
+                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
+
                   </div>
                 </div>
               </article>
@@ -117,6 +123,8 @@ class Timeline extends Component {
                     <p>
                       We have had a meeting at <strong>Office</strong>.
                     </p>
+                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
+
                   </div>
                 </div>
               </article>
@@ -142,6 +150,8 @@ class Timeline extends Component {
                       Greatly who affixed suppose but enquire compact prepare
                       all put. Added forth chief trees but rooms think may.
                     </p>
+                    <h4 className="text-right"><a href="#" >View Documents</a></h4>
+
                   </div>
                 </div>
               </article>
@@ -157,7 +167,6 @@ class Timeline extends Component {
                 </div>
               </article>
             </div>
-            Dashboard
           </div>
         </div>
 

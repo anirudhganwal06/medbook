@@ -17,6 +17,7 @@ import PrivateRoute from "./components/common/PrivateRoute";
 import Timeline from "./components/user/Timeline";
 import Landing from "./components/layout/Landing";
 import MyProfile from "./components/user/MyProfile";
+import Contactus from "./components/pages/Contactus" ;
 
 // import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -51,6 +52,7 @@ class App extends Component {
               <Route exact path="/" component={Landing} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/timeline" component={Timeline} />
+              <Route exact path="/contact-us" component={Contactus} />
               <PrivateRoute exact path="/my-profile" component={MyProfile} />
             </main>
             <Footer />
